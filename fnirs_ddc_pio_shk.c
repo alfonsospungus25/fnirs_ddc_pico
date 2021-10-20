@@ -26,9 +26,6 @@
 
 pio_spi_inst_t spi;
 
-
-
-
 void clockActive(){
 //Clock Source: CLK with source from USB (48MHz) So it can be 4MHz, we divide with 12
 //Clock Source: CONV with source from USB (48MHz) So it can be 1250Hz, we divide with 38400
