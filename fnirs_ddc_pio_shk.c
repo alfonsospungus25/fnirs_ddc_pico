@@ -26,6 +26,9 @@
 
 pio_spi_inst_t spi;
 
+
+
+
 void clockActive(){
 //Clock Source: CLK with source from USB (48MHz) So it can be 4MHz, we divide with 12
 //Clock Source: CONV with source from USB (48MHz) So it can be 1250Hz, we divide with 38400
@@ -133,17 +136,13 @@ int main() {
 //20bit
 
         //Readback After Conv Toggle
-            while(gpio_get(DDC_CONV) == 0){}; //empty while schleife as long DDC_CONV 0, when change 1 goes to next step
+            while(gpio_get(DDC_DVALIDn) == 1){}; //empty while schleife as long DDC_CONV 0, when change 1 goes to next step
             busy_wait_us(8);                 //DDC_CONV 1, busy wait us 40 for setting conv pos with dvalidn
             pio_spi_read8_blocking(&spi, buffer, 10);    //DDC_CONV 1
             //busy_wait_us(1.75);
             calculateValue(buffer);
 
-            while(gpio_get(DDC_CONV) == 1){};
-            busy_wait_us(8);
-            pio_spi_read8_blocking(&spi, buffer, 10);
-            //busy_wait_us(1.75);
-            calculateValue(buffer);
+
 
 //16bit
     // while(gpio_get(DDC_CONV) == 0){}; //empty while schleife as long DDC_CONV 0, when change 1 goes to next step
@@ -168,3 +167,36 @@ int main() {
     }
     
 }
+
+   
+    
+
+ 
+
+ 
+
+ 
+//16bit
+    // while(gpio_get(DDC_CONV) == 0){}; //empty while schleife as long DDC_CONV 0, when change 1 goes to next step
+    //     busy_wait_us(40);                 //DDC_CONV 1
+    //     pio_spi_read8_blocking(&spi, buffer, 8);    //DDC_CONV 1
+    //     busy_wait_us(1.75);
+    //        for(int i=6;i<8;i=i+2){      //8 bcs 2,2,2,2 and i+2 bcs we want to print 2 buffer
+    //             int val = (buffer[i] << 8) + buffer[i+1];
+    //             printf("ch %i: %i\n", i/2, val ); // bsc for loop +2 and we want to name the channel 0,1,2,3 that's why i/2
+    //     }
+ 
+    //     while(gpio_get(DDC_CONV) == 1){};
+    //     busy_wait_us(40);
+    //     pio_spi_read8_blocking(&spi, buffer, 8);
+    //     busy_wait_us(1.75);
+    //         for(int i=6;i<8;i=i+2){                        //i=6 damit wir nur channel 3 print
+    //             int val = (buffer[i] << 8) + buffer[i+1]; //shift operaton left schieben MSB
+    //             printf("ch %i: %i\n", i/2, val );
+    //     }
+ 
+           
+
+ 
+
+
