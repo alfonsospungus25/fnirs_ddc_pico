@@ -1349,8 +1349,8 @@ CMakeFiles\ELF2UF2Build.dir\clean:
 # Target rules for target CMakeFiles/fnirs_ddc_pio_shk.dir
 
 # All Build rule for target.
-CMakeFiles\fnirs_ddc_pio_shk.dir\all: CMakeFiles\fnirs_ddc_pio_shk_spi_pio_h.dir\all
 CMakeFiles\fnirs_ddc_pio_shk.dir\all: CMakeFiles\ELF2UF2Build.dir\all
+CMakeFiles\fnirs_ddc_pio_shk.dir\all: CMakeFiles\fnirs_ddc_pio_shk_spi_pio_h.dir\all
 CMakeFiles\fnirs_ddc_pio_shk.dir\all: pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_asm.dir\all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\fnirs_ddc_pio_shk.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\fnirs_ddc_pio_shk.dir\depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\fnirs_ddc_pio_shk.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\fnirs_ddc_pio_shk.dir\build
