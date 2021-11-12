@@ -95,9 +95,9 @@ void calculateValue(uint8_t buffer[]){
             for (int i=0;i<n;i++){
                 binary[i] = (val & (int)1<<(n-i-1)) ? '1' : '0';
                 }
-            //binary[n]='\0'; //Sign to end of string
-            printf("ch %i: %i \n", ch, val );
-            //printf("ch %i: %i | %s\n", ch, val, binary );
+            binary[n]='\0'; //Sign to end of string
+            //printf("ch %i: %i \n", ch, val );
+            printf("ch %i: %i | %s\n", ch, val, binary );
     }
 }
  
