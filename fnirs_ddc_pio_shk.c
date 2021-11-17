@@ -9,7 +9,6 @@
  
 //We define our SPI Connecting between DDC and MCU
 #define MOSI          3 //(SCL)  SPI0 MOSI (will not use it)
-#define CS            13 //(D13) Digital IO/CS (will not use it)
 #define DDC_DOUT      20//(MI)to SPI0 MISO
 #define DDC_DCLK      18 //(SCK)to SPI0 SCLK
 #define DDC_CLK       25 //(D24) Digital IO/Master Clock Input
@@ -118,7 +117,7 @@ int main() {
    
    
     //Declare spi instance
-        pio_spi_inst_t spi = {.pio = pio0, .sm = 0, .cs_pin = DDC_DVALIDn};
+        pio_spi_inst_t spi = {.pio = pio0, .sm = 0};
         gpio_set_dir(spi.cs_pin, GPIO_IN);
     //prog off
         uint prog_offs = pio_add_program(spi.pio, &spi_cpha0_program);

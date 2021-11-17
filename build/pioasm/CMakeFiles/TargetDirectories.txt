@@ -1,0 +1,3 @@
+C:/Users/Alfonso Samuel/Documents/pico/fnirs_ddc_pio_shk/build/pioasm/CMakeFiles/pioasm.dir
+C:/Users/Alfonso Samuel/Documents/pico/fnirs_ddc_pio_shk/build/pioasm/CMakeFiles/edit_cache.dir
+C:/Users/Alfonso Samuel/Documents/pico/fnirs_ddc_pio_shk/build/pioasm/CMakeFiles/rebuild_cache.dir
