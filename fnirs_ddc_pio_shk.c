@@ -9,7 +9,6 @@
  
 //We define our SPI Connecting between DDC and MCU
 #define MOSI          3 //(SCL)  SPI0 MOSI (will not use it)
-#define CS            13 //(D13) Digital IO/CS (will not use it)
 #define DDC_DOUT      20//(MI)to SPI0 MISO
 #define DDC_DCLK      18 //(SCK)to SPI0 SCLK
 #define DDC_CLK       25 //(D24) Digital IO/Master Clock Input
@@ -25,6 +24,7 @@
  
  
 pio_spi_inst_t spi;
+typedef void (*irq_handler_t)(void);
  
 void clockActive(){
 //Clock Source: CLK with source from USB (48MHz) So it can be 4MHz, we divide with 12
@@ -72,8 +72,10 @@ void setDirection(){
     gpio_set_dir(DDC_RANGE2, GPIO_OUT);
      
 }
-   
- 
+
+
+//bool irq_is_enabled(uint USBCTRL_IRQ);
+
 void read_data(const pio_spi_inst_t *spi){
  
         uint8_t buffer[10] ;
@@ -112,7 +114,7 @@ void read_data(const pio_spi_inst_t *spi){
      read_data(&spi);
  }
  
- 
+
                                          
 int main() {
     stdio_init_all();
@@ -132,7 +134,7 @@ gpio_set_irq_enabled_with_callback(DDC_DVALIDn, 0X04 , 1, ddc_conv_callback); //
 //gpio_set_irq_enabled(DDC_DVALIDn, 0X04 , 1); //Pin DVALIDn, Falling edge = 2 bits so 0x04, enable =1 , function read data
  
     //Declare spi instance
-        pio_spi_inst_t spi = {.pio = pio0, .sm = 0, .cs_pin = DDC_DVALIDn};
+        pio_spi_inst_t spi = {.pio = pio0, .sm = 0};
         gpio_set_dir(spi.cs_pin, GPIO_IN);
     //prog off
         uint prog_offs = pio_add_program(spi.pio, &spi_cpha0_program);
