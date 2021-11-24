@@ -130,7 +130,7 @@ int main() {
         gpio_put(DDC_TEST,0);
  
  
-gpio_set_irq_enabled_with_callback(DDC_DVALIDn, 0X04 , 1, ddc_conv_callback); //Pin DVALIDn, Falling edge = 2 bits so 0x04, enable =1 , function read data
+gpio_set_irq_enabled_with_callback(DDC_DVALIDn, 0X08 , 1, ddc_conv_callback); //Pin DVALIDn, Falling edge = 2 bits so 0x04, enable =1 , function read data
 //gpio_set_irq_enabled(DDC_DVALIDn, 0X04 , 1); //Pin DVALIDn, Falling edge = 2 bits so 0x04, enable =1 , function read data
  
     //Declare spi instance

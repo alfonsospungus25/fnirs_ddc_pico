@@ -569,7 +569,7 @@ Disassembly of section .text:
 100004f2:	61a3      	str	r3, [r4, #24]
 100004f4:	4b4b      	ldr	r3, [pc, #300]	; (10000624 <main+0x168>)
 100004f6:	2201      	movs	r2, #1
-100004f8:	2104      	movs	r1, #4
+100004f8:	2108      	movs	r1, #8
 100004fa:	2007      	movs	r0, #7
 100004fc:	f000 f90e 	bl	1000071c <gpio_set_irq_enabled_with_callback>
 10000500:	220c      	movs	r2, #12
